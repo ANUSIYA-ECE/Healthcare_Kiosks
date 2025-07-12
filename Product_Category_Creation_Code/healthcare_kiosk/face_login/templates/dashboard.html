@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Healthcare Kiosk Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-light: #f0f4f8;
+      --bg-dark: #1e1e2f;
+      --text-light: #333;
+      --text-dark: #f4f4f4;
+      --card-bg-light: #000000;
+      --card-bg-dark: #000000;
+      --accent: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://wallpaperaccess.com/full/624111.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      z-index: -2;
+    }
+
+    .dark-mode::before {
+      background: linear-gradient(-45deg, #1e1e2f, #3c3c5a, #2e2e44, #1f1f2f);
+      opacity: 0.6;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dark-mode .header {
+      background-color: #2b2b3c;
+    }
+
+    .user-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .user-box img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .user-info strong {
+      font-weight: bold;
+    }
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-45%);
+  font-size: 28px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+
+    .header-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-button {
+      font-size: 24px;
+      cursor: pointer;
+      color: #2196f3;
+      user-select: none;
+      padding: 4px;
+      transition: transform 0.2s;
+    }
+
+    .icon-button:hover {
+      transform: scale(1.2);
+    }
+
+    #searchInput {
+      padding: 6px 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #2196f3;
+    }
+
+.clock-location-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: white;
+}
+
+.clock {
+  font-weight: bold;
+}
+
+.location-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+.logout-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #ff4c4c;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #e60000;
+}
+
+    a.card, .card {
+      margin-top: 50px;
+      background-color: rgba(0, 0, 0, 0.6);
+      background-image: url('https://static.vecteezy.com/system/resources/previews/006/712/985/non_2x/abstract-health-medical-science-healthcare-icon-digital-technology-science-concept-modern-innovation-treatment-medicine-on-hi-tech-future-blue-background-for-wallpaper-template-web-design-vector.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      text-decoration: none;
+      color: white;
+      width: 450px;
+      height: 150px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+      border: 2px solid #ffffff55;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a.card:hover, .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .card:active {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .text-overlay {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      border-radius: 12px;
+      color: #fff;
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+    }
+
+    .text-overlay h3 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .text-overlay p {
+      font-size: 16px;
+      margin: 5px 0 0;
+    }
+
+    .tips {
+      text-align: center;
+      font-style: italic;
+      font-size: 20px;
+      font-weight: 500;
+      margin-top: 50px;
+      color:#f7f2f2;
+      animation: fadeIn 3s ease-in-out infinite;
+    }
+
+    .dark-mode .tips {
+      color: #fefbfb;
+    }
+
+    @keyframes fadeIn {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
+
+    @media (max-width: 768px) {
+.header {
+  position: relative; /* Needed for absolute centering to work */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+      .header-meta {
+        align-items: center;
+      }
+
+      .header-title {
+        margin: 10px 0;
+      }
+
+      .dashboard {
+        padding: 10px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <!-- Left: User Info -->
+  <div class="user-box">
+    <img src="{{ url_for('static', filename=image.replace('static/', '')) }}" alt="User Image" width="100">
+
+    <div class="user-info">
+      <strong>{{ name }}</strong>
+
+      <span>Login: {{ method }}</span>
+      <button onclick="logout()" class="logout-btn">Logout</button> <!-- ✅ Logout -->
+    </div>
+  </div>
+
+  <!-- Center: Title -->
+  <div class="header-title">
+    Healthcare Kiosk Dashboard
+  </div>
+
+  <!-- Right: Icons, Clock, Location -->
+  <div class="header-meta">
+    <div class="header-icons">
+      <span onclick="toggleDarkMode()" class="icon-button" title="Toggle Dark Mode">🌓</span>
+      <span onclick="toggleSearch()" class="icon-button" title="Search">🔍</span>
+      <input type="text" id="searchInput" oninput="searchCards()" placeholder="Search..." style="display: none;" />
+    </div>
+
+   <div class="clock-location-row">
+  <div class="clock" id="clock">--:--:--</div>
+  <div class="location-wrapper">
+    <div class="location" id="location">Locating...</div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- MAIN DASHBOARD -->
+<div class="main-content">
+  <div class="dashboard">
+   <a href="http://localhost:5001/?name={{ name }}&image={{ image }}" class="card" target="_blank">
+
+
+      <div class="text-overlay">
+        <h3>AI Symptom Checker</h3>
+        <p>Analyze your symptoms using AI.</p>
+      </div>
+    </a>
+
+    <a href="http://localhost:3000" class="card" target="_blank">
+      <div class="text-overlay">
+        <h3>Check Vitals</h3>
+        <p>Monitor temperature, heart rate & more.</p>
+      </div>
+    </a>
+
+<div class="card" onclick="window.open('http://localhost:5005/past_reports', '_blank')">
+  <div class="text-overlay">
+    <h3>Past Reports</h3>
+    <p>Access your previous medical history.</p>
+  </div>
+</div>
+
+
+   <a href="http://localhost:3001" class="card" target="_blank">
+      <div class="text-overlay">
+         <h3>Book Consultation</h3>
+        <p>Schedule an appointment with a doctor.</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="tips" id="tip">
+    Tip: Stay hydrated. Drink 8–10 glasses of water daily!
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  setInterval(() => {
+    const now = new Date();
+    document.getElementById('clock').textContent = now.toLocaleTimeString();
+  }, 1000);
+
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const { latitude, longitude } = pos.coords;
+      document.getElementById('location').textContent =
+        `Lat: ${latitude.toFixed(2)}, Lng: ${longitude.toFixed(2)}`;
+    },
+    (err) => {
+      let message = "";
+      switch (err.code) {
+        case err.PERMISSION_DENIED:
+          message = "Permission denied. Please allow location access.";
+          break;
+        case err.POSITION_UNAVAILABLE:
+          message = "Location info unavailable.";
+          break;
+        case err.TIMEOUT:
+          message = "Location request timed out.";
+          break;
+        default:
+          message = "Unknown location error.";
+      }
+      document.getElementById('location').textContent = message;
+    }
+  );
+} else {
+  document.getElementById('location').textContent = "Geolocation not supported.";
+}
+
+
+
+
+  function toggleSearch() {
+    const input = document.getElementById("searchInput");
+    input.style.display = input.style.display === "none" || !input.style.display ? "inline-block" : "none";
+    if (input.style.display === "inline-block") input.focus();
+  }
+
+  function searchCards() {
+    const term = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const desc = card.querySelector("p").textContent.toLowerCase();
+      card.style.display = title.includes(term) || desc.includes(term) ? "flex" : "none";
+    });
+  }
+
+  const tips = [
+    "Tip: Stay hydrated. Drink 8–10 glasses of water daily!",
+    "Tip: Take a 10-minute walk every hour during screen time.",
+    "Tip: Eat at least one fruit daily for immunity.",
+    "Tip: Don’t skip breakfast — fuel your day early.",
+    "Tip: Get 7–8 hours of sleep each night."
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % tips.length;
+    document.getElementById("tip").textContent = tips[i];
+  }, 7000);
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+
+function logout() {
+  // Redirect to your local file
+  window.location.href = "http://localhost:5500";
+}
+</script>
+<script src="{{ url_for('static', filename='js/translator.js') }}"></script>
+
+</body>
+</html>

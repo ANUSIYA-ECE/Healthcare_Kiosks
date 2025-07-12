@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Symptom Checker Reports</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .file-list {
+            max-width: 700px;
+            margin: auto;
+        }
+        .file {
+            background-color: #f2f2f2;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .file a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        .file a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>All AI Symptom Checker Reports</h2>
+    <div class="file-list">
+        {% if reports %}
+            {% for file in reports %}
+                <div class="file">
+                    <a href="{{ url_for('static', filename='reports/' + file) }}" target="_blank">{{ file }}</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No reports found.</p>
+        {% endif %}
+    </div>
+<script src="/static/js/translator.js"></script>
+</body>
+</html>
+

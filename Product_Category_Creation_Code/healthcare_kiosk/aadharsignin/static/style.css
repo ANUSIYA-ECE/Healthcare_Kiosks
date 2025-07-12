@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('/static/bg.avif') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(174, 209, 209, 0.4);
+    text-align: center;
+    color: #fff;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 30px;
+    color: #52d2d9;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    font-size: 20px;
+    color: #ddd;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box; /* ✅ Prevents width mismatch */
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+button {
+    background-color: #52d2d9;
+    color: #060606;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #00a382;
+}
+
+#otp-box {
+    margin-top: 20px;
+    display: none;
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #dce1e0;
+    font-size: 15px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <title>Enter Your Vitals</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="vitals-form-bg notranslate">
+  <div class="vitals-form">
+    <h1>Enter Your Vitals</h1>
+    <p class="form-tagline">🩺 Please enter all fields below</p>
+    <form action="/predict" method="POST">
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" name="age" min="1" max="120" required>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender" required>
+          <option value="">Select…</option>
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Blood Pressure (e.g. 120/80)</label>
+        <input type="text" name="bloodPressure" pattern="\d+\/\d+" required>
+      </div>
+      <div class="form-group">
+        <label>Pulse Rate (bpm)</label>
+        <input type="number" name="pulseRate" required>
+      </div>
+      <div class="form-group">
+        <label>Body Temperature (°F)</label>
+        <input type="number" step="0.1" name="temperature" required>
+      </div>
+      <div class="form-group">
+        <label>Height (cm)</label>
+        <input type="number" step="0.1" name="height" required>
+      </div>
+      <div class="form-group">
+        <label>Weight (kg)</label>
+        <input type="number" step="0.1" name="weight" required>
+      </div>
+      <div class="form-group">
+        <label>Oxygen Saturation (%)</label>
+        <input type="number" name="oxygen" required>
+      </div>
+      <button type="submit" class="oval-btn submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <!-- our custom translator -->
+  <script defer src="/js/translator.js"></script>
+</body>
+</html>

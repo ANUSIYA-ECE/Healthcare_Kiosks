@@ -1,0 +1,14 @@
+{
+  "name": "vitals",
+  "version": "1.0.0",
+  "description": "Vitals check with nearest-neighbor prediction",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0"
+  }
+}

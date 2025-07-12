@@ -1,0 +1,42 @@
+Disease,Precaution_1,Precaution_2,Precaution_3,Precaution_4,Department
+Drug Reaction,stop irritation,consult nearest hospital,stop taking drug,follow up,General Physician
+Malaria,Consult nearest hospital,avoid oily food,avoid non veg food,keep mosquitos out,General Physician / Infectious Disease Specialist
+Allergy,apply calamine,cover area with bandage,,use ice to compress itching,Allergist / Immunologist
+Hypothyroidism,reduce stress,exercise,eat healthy,get proper sleep,Endocrinologist
+Psoriasis,wash hands with warm soapy water,stop bleeding using pressure,consult doctor,salt baths,Dermatologist
+GERD,avoid fatty spicy food,avoid lying down after eating,maintain healthy weight,exercise,Gastroenterologist
+Chronic cholestasis,cold baths,anti itch medicine,consult doctor,eat healthy,Hepatologist / Gastroenterologist
+hepatitis A,Consult nearest hospital,wash hands through,avoid fatty spicy food,medication,Hepatologist / General Physician
+Osteoarthristis,acetaminophen,consult nearest hospital,follow up,salt baths,Orthopedic
+(vertigo) Paroymsal  Positional Vertigo,lie down,avoid sudden change in body,avoid abrupt head movment,relax,Neurologist / ENT Specialist
+Hypoglycemia,lie down on side,check in pulse,drink sugary drinks,consult doctor,Endocrinologist
+Acne,bath twice,avoid fatty spicy food,drink plenty of water,avoid too many products,Dermatologist
+Diabetes,have balanced diet,exercise,consult doctor,follow up,"	Endocrinologist"
+Impetigo,soak affected area in warm water,use antibiotics,remove scabs with wet compressed cloth,consult doctor,Dermatologist
+Hypertension,meditation,salt baths,reduce stress,get proper sleep,Cardiologist
+Peptic ulcer diseae,avoid fatty spicy food,consume probiotic food,eliminate milk,limit alcohol,"	Gastroenterologist"
+Dimorphic hemmorhoids(piles),avoid fatty spicy food,consume witch hazel,warm bath with epsom salt,consume alovera juice,Proctologist / Gastroenterologist
+Common Cold,drink vitamin c rich drinks,take vapour,avoid cold food,keep fever in check,General Physician
+Chicken pox,use neem in bathing ,consume neem leaves,take vaccine,avoid public places,General Physician / Dermatologist
+Cervical spondylosis,use heating pad or cold pack,exercise,take otc pain reliver,consult doctor,Orthopedic / Neurologist
+Hyperthyroidism,eat healthy,massage,use lemon balm,take radioactive iodine treatment,Endocrinologist
+Urinary tract infection,drink plenty of water,increase vitamin c intake,drink cranberry juice,take probiotics,Urologist / Gynecologist
+Varicose veins,lie down flat and raise the leg high,use oinments,use vein compression,dont stand still for long,Vascular Surgeon
+AIDS,avoid open cuts,wear ppe if possible,consult doctor,follow up,Infectious Disease Specialist
+Paralysis (brain hemorrhage),massage,eat healthy,exercise,consult doctor,Neurologist / Neurosurgeon
+Typhoid,eat high calorie vegitables,antiboitic therapy,consult doctor,medication,General Physician / Infectious Disease Specialist
+Hepatitis B,consult nearest hospital,vaccination,eat healthy,medication,Hepatologist
+Fungal infection,bath twice,use detol or neem in bathing water,keep infected area dry,use clean cloths,Dermatologist
+Hepatitis C,Consult nearest hospital,vaccination,eat healthy,medication,Hepatologist
+Migraine,meditation,reduce stress,use poloroid glasses in sun,consult doctor,Neurologist
+Bronchial Asthma,switch to loose cloothing,take deep breaths,get away from trigger,seek help,Pulmonologist / General Physician
+Alcoholic hepatitis,stop alcohol consumption,consult doctor,medication,follow up,Hepatologist
+Jaundice,drink plenty of water,consume milk thistle,eat fruits and high fiberous food,medication,Hepatologist / General Physician
+Hepatitis E,stop alcohol consumption,rest,consult doctor,medication,Hepatologist
+Dengue,drink papaya leaf juice,avoid fatty spicy food,keep mosquitos away,keep hydrated,General Physician / Infectious Disease Specialist
+Hepatitis D,consult doctor,medication,eat healthy,follow up,Hepatologist
+Heart attack,call ambulance,chew or swallow asprin,keep calm,,Cardiologist / Emergency Medicine
+Pneumonia,consult doctor,medication,rest,follow up,Pulmonologist
+Arthritis,exercise,use hot and cold therapy,try acupuncture,massage,Rheumatologist
+Gastroenteritis,stop eating solid food for while,try taking small sips of water,rest,ease back into eating,Gastroenterologist
+Tuberculosis,cover mouth,consult doctor,medication,rest,Pulmonologist / Infectious Disease Specialist

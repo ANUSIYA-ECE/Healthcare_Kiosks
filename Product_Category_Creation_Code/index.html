@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Care Kiosk - Choose Action</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://wallpaperaccess.com/full/624111.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex; justify-content: center; align-items: center; height: 100vh;
+    }
+    .container {
+      background: rgba(8, 8, 8, 0.92);
+      border-radius: 16px;
+      border: 5px solid rgb(127, 214, 210);
+      padding: 40px 30px;
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+    h1, h2 { color: #eff4f5; }
+    h2 { color: #7cdfe8; font-weight: 300; }
+    button {
+      background: #7cdfe8; color: #020202;
+      border: none; border-radius: 30px;
+      padding: 14px 28px; margin: 10px 0;
+      font-size: 20px; cursor: pointer; width: 100%;
+    }
+    button:hover { background: #ea3d3d; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Health Care Kiosk</h1>
+    <h2 id="subtitle">Choose Action</h2>
+
+    <!-- Step 1: Choose Register or Login -->
+    <div id="main-buttons">
+      <button onclick="selectAction('register')">Register</button>
+      <button onclick="selectAction('login')">Login</button>
+    </div>
+
+    <!-- Step 2: Choose Method -->
+    <div id="method-buttons" class="hidden">
+      <button id="face-btn">Via Face Recognition</button>
+      <button id="aadhaar-btn">Via Aadhaar</button>
+      <button onclick="goBack()">Back</button>
+    </div>
+  </div>
+
+  <!-- Google Translate anchor (hidden) -->
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <script>
+    let selectedAction = null;
+
+    function selectAction(action) {
+      selectedAction = action;
+      document.getElementById("main-buttons").classList.add("hidden");
+      document.getElementById("method-buttons").classList.remove("hidden");
+      document.getElementById("subtitle").innerText = "Choose Method for " + action.charAt(0).toUpperCase() + action.slice(1);
+
+      document.getElementById("face-btn").onclick = function () {
+        window.location.href = 'http://127.0.0.1:5003/' + (selectedAction === 'register' ? 'register' : 'login');
+      };
+      document.getElementById("aadhaar-btn").onclick = function () {
+        window.location.href = 'http://127.0.0.1:5000/';
+      };
+    }
+
+    function goBack() {
+      document.getElementById("method-buttons").classList.add("hidden");
+      document.getElementById("main-buttons").classList.remove("hidden");
+      document.getElementById("subtitle").innerText = "Choose Action";
+    }
+  </script>
+  <!-- Include the translator.js file -->
+  <script src="js/translator.js"></script>
+</body>
+</html>

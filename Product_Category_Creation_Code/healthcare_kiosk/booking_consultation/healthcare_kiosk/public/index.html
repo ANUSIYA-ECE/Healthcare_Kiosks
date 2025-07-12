@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Healthcare Kiosk</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <div id="step1" class="section show">
+    <h2>Do you want to book a consultation with a doctor?</h2>
+    <div class="button-group">
+      <button id="yesBtn" class="btn btn-primary">Yes</button>
+      <button id="noBtn" class="btn btn-secondary">No</button>
+    </div>
+  </div>
+  <div id="step2" class="section">
+    <button class="btn btn-secondary back-btn">← Back</button>
+    <h2>Want to meet the doctor in:</h2>
+    <div class="button-group">
+      <button id="onlineBtn" class="btn btn-primary">Online</button>
+      <button id="offlineBtn" class="btn btn-secondary">Offline</button>
+    </div>
+  </div>
+  <div id="offlineSchedule" class="section">
+    <button class="btn btn-secondary back-btn">← Back</button>
+    <h2>Select your preferred date and time:</h2>
+    <input type="date" id="offlineDate" style="font-size:1.2rem;padding:1rem 1.2rem;margin-bottom:1.4rem;">
+    <input type="time" id="offlineTime" style="font-size:1.2rem;padding:1rem 1.2rem;margin-bottom:1.4rem;">
+    <button id="offlineSubmit" class="btn btn-primary">Submit</button>
+  </div>
+  <div id="doctorList" class="section">
+    <button class="btn btn-secondary back-btn">← Back</button>
+    <h2>Available Doctors</h2>
+    <div id="doctorCards" class="card-container"></div>
+    <button id="doctorSelectBtn" class="btn btn-primary">Proceed to Payment</button>
+  </div>
+  <div id="payment" class="section">
+    <button class="btn btn-secondary back-btn">← Back</button>
+    <h2>Payment</h2>
+    <p id="paymentText">Scan to pay ₹300 via UPI</p>
+    <div id="qrContainer" style="margin:20px;"></div>
+    <input type="text" id="txnInput" placeholder="Enter your transaction ID" />
+    <button id="confirmTxnBtn" class="btn btn-primary" style="display:none;">Done Payment</button>
+    <button id="paymentDoneBtn" class="btn btn-primary" style="margin-top:20px;">Payment Done</button>
+  </div>
+  <div id="videoCall" class="section">
+    <button class="btn btn-secondary back-btn">← Back</button>
+    <h2>Video Consultation</h2>
+    <div id="jitsiContainer" style="width:100%;height:80%;"></div>
+    <button id="endCallBtn" class="btn btn-danger">End Call</button>
+  </div>
+  <div id="paymentOverlay" class="payment-overlay" style="display:none;">
+    <div class="icon">✔️</div>
+    <div id="overlayText" class="overlay-text">Payment Confirmed</div>
+  </div>
+  <div id="appointmentModal" class="appointment-modal">
+    <div class="appointment-modal-content" id="appointmentModalContent"></div>
+  </div>
+  <div id="notifMsg" style="
+    display:none;position:fixed;top:35px;left:50%;transform:translateX(-50%);
+    z-index:9999;min-width:320px;max-width:80vw;padding:22px 34px;
+    background:#0b2242d9;color:#fff;font-size:1.36rem;font-weight:700;
+    border-radius:12px;box-shadow:0 6px 38px #00f6ff8c;
+    border:2.5px solid #00f6ff;letter-spacing:0.3px;text-align:center;
+  "></div>
+
+  <!-- Jitsi & QRCode -->
+  <script src="https://meet.jit.si/external_api.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Main logic -->
+  <script src="script.js"></script>
+
+  <!-- Language Toggle Button (bottom right, notranslate) -->
+  <div id="custom-translate-toggle" class="lang-toggle notranslate" translate="no">
+    <span class="lang-icon notranslate" translate="no">🌐</span>
+    <span id="lang-label" class="notranslate" translate="no">English</span>
+  </div>
+  <script src="js/translator.js"></script>
+
+  <!-- Google Translate element (hidden) -->
+  <div id="google_translate_element" style="display:none"></div>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ta,hi,ml,kn,te',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+</body>
+</html>

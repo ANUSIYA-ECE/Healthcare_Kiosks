@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <title>Your Results</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="vitals-result-bg notranslate">
+  <div class="vitals-form result-container">
+    <h1>Your Vitals Summary</h1>
+    <p class="result-subtitle">Here is your result</p>
+    <ul class="results-list">
+      <% results.forEach(r => { %>
+        <li data-icon="<%= 
+          r.name==='Blood Pressure'     ? '🩺' :
+          r.name==='Pulse Rate'         ? '❤️' :
+          r.name==='Body Temperature'   ? '🌡️' :
+          r.name==='Oxygen Saturation'  ? '🫁' :
+                                         '⚖️' %>">
+          <strong><%= r.name %>:</strong>
+          <span class="label <%= r.label %>"><%= r.label %></span>
+        </li>
+      <% }) %>
+    </ul>
+    <div class="buttons">
+      <a href="/form" class="oval-btn pastel-sky">Try Again</a>
+      <a href="/"      class="oval-btn pastel-peach">Start Over</a>
+    </div>
+  </div>
+
+  <!-- our custom translator -->
+  <script defer src="/js/translator.js"></script>
+</body>
+</html>

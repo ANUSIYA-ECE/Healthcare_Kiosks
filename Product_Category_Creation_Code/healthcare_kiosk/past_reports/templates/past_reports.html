@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Past Reports</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <h1 style="color: white;">Past Reports</h1>
+
+
+  <div class="card" onclick="location.href='/symptom_checker_reports'">
+    <h3>🧠 AI Symptom Checker Reports</h3>
+    <p>View all your AI-diagnosed health reports.</p>
+  </div>
+
+  <div class="card" onclick="location.href='/general_vital_reports'">
+    <h3>🩺 General Vital Reports</h3>
+    <p>Review general vital checkups and summaries.</p>
+  </div>
+
+  <div class="card" onclick="location.href='/booked_appointments'">
+    <h3>📅 Booked Appointments</h3>
+    <p>Track your previous doctor appointments.</p>
+  </div>
+
+  <style>
+    body { font-family: Arial; padding: 30px; background: #101010; }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(252, 249, 249, 0.949);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card:hover { background: #e0f7fa; }
+  </style>
+<script src="/static/js/translator.js"></script>
+</body>
+</html>
+

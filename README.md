@@ -15,4 +15,7 @@ A key feature of the system is its **language toggle functionality**, which allo
 
 The backend infrastructure uses structured file formats like CSV and JSON to enable smooth communication between the Python and Node.js environments. Designed to function effectively on low-resource devices, the kiosk maintains offline compatibility, data security, biometric accuracy, and ease of use, making it a sustainable healthcare solution for regions with limited medical infrastructure.
 
+PROJECT VIDEO DRIVE LINK:
+https://drive.google.com/drive/folders/1xTJpeC6nxCIEKHGVZD5bWPZv85n7K1D_?usp=drive_link
+
 

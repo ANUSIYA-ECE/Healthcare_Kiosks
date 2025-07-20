@@ -18,4 +18,6 @@ The backend infrastructure uses structured file formats like CSV and JSON to ena
 PROJECT VIDEO DRIVE LINK:
 https://drive.google.com/drive/folders/1xTJpeC6nxCIEKHGVZD5bWPZv85n7K1D_?usp=drive_link
 
+PROJECT REPORT DRIVE LINK:
+https://drive.google.com/drive/folders/13j2P5aW0lL3-6MvsDuwWGFtDXnkkV57K?usp=drive_link
 
